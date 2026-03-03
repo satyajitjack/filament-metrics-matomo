@@ -1,0 +1,13 @@
+includes:
+    - vendor/larastan/larastan/extension.neon
+
+parameters:
+    paths:
+        - src
+
+    level: 8
+
+    ignoreErrors:
+        - '#Unable to resolve the template type TCacheValue in call to method Illuminate\\Contracts\\Cache\\Repository::remember#'
+
+    excludePaths:
