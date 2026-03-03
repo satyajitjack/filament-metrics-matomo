@@ -2,6 +2,7 @@
 
 namespace JeffersonGoncalves\FilamentMetricsMatomo\Widgets;
 
+use Filament\Support\Icons\Heroicon;
 use Filament\Widgets\StatsOverviewWidget;
 use Filament\Widgets\StatsOverviewWidget\Stat;
 use JeffersonGoncalves\FilamentMetricsMatomo\Concerns\HasMatomoClient;
@@ -60,27 +61,27 @@ class MatomoVisitsSummaryWidget extends StatsOverviewWidget
             Stat::make(
                 __('filament-metrics-matomo::widgets.visits_summary.visitors'),
                 number_format($summary['nbUniqVisitors'] ?? 0)
-            )->icon('heroicon-o-users'),
+            )->icon(Heroicon::OutlinedUsers),
             Stat::make(
                 __('filament-metrics-matomo::widgets.visits_summary.visits'),
                 number_format($summary['nbVisits'] ?? 0)
-            )->icon('heroicon-o-cursor-arrow-rays'),
+            )->icon(Heroicon::OutlinedCursorArrowRays),
             Stat::make(
                 __('filament-metrics-matomo::widgets.visits_summary.pageviews'),
                 number_format($summary['nbActions'] ?? 0)
-            )->icon('heroicon-o-document-text'),
+            )->icon(Heroicon::OutlinedDocumentText),
             Stat::make(
                 __('filament-metrics-matomo::widgets.visits_summary.bounce_rate'),
                 $bounceRate
-            )->icon('heroicon-o-arrow-uturn-left'),
+            )->icon(Heroicon::OutlinedArrowUturnLeft),
             Stat::make(
                 __('filament-metrics-matomo::widgets.visits_summary.avg_duration'),
                 $avgDuration
-            )->icon('heroicon-o-clock'),
+            )->icon(Heroicon::OutlinedClock),
             Stat::make(
                 __('filament-metrics-matomo::widgets.visits_summary.actions_per_visit'),
                 number_format($summary['nbActionsPerVisit'] ?? 0, 1)
-            )->icon('heroicon-o-hand-raised'),
+            )->icon(Heroicon::OutlinedHandRaised),
         ];
     }
 }

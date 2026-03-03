@@ -4,7 +4,9 @@
 [![Tests](https://github.com/jeffersongoncalves/filament-metrics-matomo/actions/workflows/run-tests.yml/badge.svg)](https://github.com/jeffersongoncalves/filament-metrics-matomo/actions/workflows/run-tests.yml)
 [![Total Downloads](https://img.shields.io/packagist/dt/jeffersongoncalves/filament-metrics-matomo.svg?style=flat-square)](https://packagist.org/packages/jeffersongoncalves/filament-metrics-matomo)
 
-A Filament v3 plugin that provides a Settings Page and Dashboard Widgets for [Matomo Analytics](https://matomo.org/), powered by [`jeffersongoncalves/laravel-metrics-matomo`](https://github.com/jeffersongoncalves/laravel-metrics-matomo).
+A Filament v4 plugin that provides a Settings Page and Dashboard Widgets for [Matomo Analytics](https://matomo.org/), powered by [`jeffersongoncalves/laravel-metrics-matomo`](https://github.com/jeffersongoncalves/laravel-metrics-matomo).
+
+> **Branch compatibility:** `1.x` for Filament v3 | `2.x` for Filament v4 | `3.x` for Filament v5
 
 ## Features
 
@@ -22,15 +24,15 @@ A Filament v3 plugin that provides a Settings Page and Dashboard Widgets for [Ma
 
 ## Requirements
 
-- PHP 8.1+
-- Laravel 10+
-- Filament 3.x
+- PHP 8.2+
+- Laravel 11+
+- Filament 4.x
 - [`jeffersongoncalves/laravel-metrics-matomo`](https://github.com/jeffersongoncalves/laravel-metrics-matomo) ^1.0
 
 ## Installation
 
 ```bash
-composer require jeffersongoncalves/filament-metrics-matomo
+composer require jeffersongoncalves/filament-metrics-matomo:^2.0
 ```
 
 Make sure you have run the base package migrations:

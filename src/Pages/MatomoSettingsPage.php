@@ -3,12 +3,13 @@
 namespace JeffersonGoncalves\FilamentMetricsMatomo\Pages;
 
 use Filament\Actions\Action;
-use Filament\Forms\Components\Section;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
-use Filament\Forms\Form;
 use Filament\Notifications\Notification;
 use Filament\Pages\SettingsPage;
+use Filament\Schemas\Components\Section;
+use Filament\Schemas\Schema;
+use Filament\Support\Icons\Heroicon;
 use Illuminate\Support\Facades\Cache;
 use JeffersonGoncalves\MetricsMatomo\Matomo;
 use JeffersonGoncalves\MetricsMatomo\MatomoClient;
@@ -18,7 +19,7 @@ class MatomoSettingsPage extends SettingsPage
 {
     protected static string $settings = MatomoSettings::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-chart-bar-square';
+    protected static string|\BackedEnum|null $navigationIcon = Heroicon::OutlinedChartBarSquare;
 
     public static function getNavigationGroup(): ?string
     {
@@ -40,9 +41,9 @@ class MatomoSettingsPage extends SettingsPage
         return __('filament-metrics-matomo::pages.settings.title');
     }
 
-    public function form(Form $form): Form
+    public function form(Schema $schema): Schema
     {
-        return $form
+        return $schema
             ->schema([
                 Section::make(__('filament-metrics-matomo::pages.settings.sections.connection'))
                     ->description(__('filament-metrics-matomo::pages.settings.sections.connection_description'))
@@ -85,7 +86,7 @@ class MatomoSettingsPage extends SettingsPage
         return [
             Action::make('test_connection')
                 ->label(__('filament-metrics-matomo::pages.settings.actions.test_connection'))
-                ->icon('heroicon-o-signal')
+                ->icon(Heroicon::OutlinedSignal)
                 ->action(function (): void {
                     try {
                         $settings = app(MatomoSettings::class);
@@ -119,8 +120,6 @@ class MatomoSettingsPage extends SettingsPage
         $store = config('filament-metrics-matomo.cache_store');
         $cache = $store ? Cache::store($store) : Cache::store();
 
-        // Clear all plugin cache by flushing tagged entries
-        // Since not all drivers support tags, we clear known keys
         $cache->forget('filament-metrics-matomo:live-counters');
         $cache->forget('filament-metrics-matomo:visits-summary-day');
         $cache->forget('filament-metrics-matomo:visits-summary-week');
