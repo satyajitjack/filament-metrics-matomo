@@ -26,15 +26,12 @@ class MatomoVisitsChartWidget extends ChartWidget
 
     protected function getFilters(): ?array
     {
-        /** @var array<string, string> $filters */
-        $filters = [
+        return [
             '7' => (string) __('filament-metrics-matomo::widgets.days_filter.7'),
             '14' => (string) __('filament-metrics-matomo::widgets.days_filter.14'),
             '30' => (string) __('filament-metrics-matomo::widgets.days_filter.30'),
             '90' => (string) __('filament-metrics-matomo::widgets.days_filter.90'),
         ];
-
-        return $filters;
     }
 
     /**
