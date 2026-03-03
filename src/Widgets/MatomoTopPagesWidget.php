@@ -11,7 +11,7 @@ class MatomoTopPagesWidget extends Widget
     use HasMatomoClient;
     use HasPeriodFilter;
 
-    protected static string $view = 'filament-metrics-matomo::widgets.table-widget';
+    protected string $view = 'filament-metrics-matomo::widgets.table-widget';
 
     protected int|string|array $columnSpan = 'full';
 

@@ -9,7 +9,7 @@ class MatomoLiveCounterWidget extends Widget
 {
     use HasMatomoClient;
 
-    protected static string $view = 'filament-metrics-matomo::widgets.live-counter';
+    protected string $view = 'filament-metrics-matomo::widgets.live-counter';
 
     protected int|string|array $columnSpan = 'full';
 

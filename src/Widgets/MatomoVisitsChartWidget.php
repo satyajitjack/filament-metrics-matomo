@@ -11,7 +11,7 @@ class MatomoVisitsChartWidget extends ChartWidget
 {
     use HasMatomoClient;
 
-    protected static ?string $heading = null;
+    protected ?string $heading = null;
 
     protected int|string|array $columnSpan = 'full';
 
